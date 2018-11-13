@@ -6,17 +6,14 @@ func maxArea(height []int) int {
 	for j = n - 1; i < j; {
 		var a int
 		if height[i] > height[j] {
-			a = (height[i] - height[j]) * (j - i)
+			a = height[j] * (j - i)
+			j--
 		} else {
-			a = (height[j] - height[i]) * (j - i)
+			a = height[i] * (j - i)
+			i++
 		}
 		if area < a {
 			area = a
-		}
-		if height[i+1] > height[j-1] {
-			i++
-		} else {
-			j--
 		}
 	}
 	return area
