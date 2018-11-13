@@ -1,13 +1,12 @@
-package functions_test
+package functions
 
 import (
 	"fmt"
-	"leetcode/functions"
 	"testing"
 )
 
 func TestAddTwoNums(t *testing.T) {
-	l1 := &functions.ListNode{Val: 5}
+	l1 := &ListNode{Val: 5}
 	// l2 := &functions.ListNode{Val: 0, Next: l1}
 	// l3 := &functions.ListNode{Val: 0, Next: l2}
 	// l4 := &functions.ListNode{Val: 0, Next: l3}
@@ -38,9 +37,9 @@ func TestAddTwoNums(t *testing.T) {
 	// l29 := &functions.ListNode{Val: 0, Next: l28}
 	// l30 := &functions.ListNode{Val: 0, Next: l29}
 	// l31 := &functions.ListNode{Val: 1, Next: l30}
-	n1 := &functions.ListNode{Val: 5}
+	n1 := &ListNode{Val: 5}
 	// n2 := &functions.ListNode{Val: 6, Next: n1}
 	// n3 := &functions.ListNode{Val: 4, Next: n2}
-	result := functions.AddTwoNumbersV2(l1, n1)
+	result := AddTwoNumbersV2(l1, n1)
 	fmt.Println(result)
 }
