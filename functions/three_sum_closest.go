@@ -4,7 +4,7 @@ import (
 	"sort"
 )
 
-func threeSum(nums []int) [][]int {
+func threeSumClosest(nums []int, target int) int {
 	sort.Ints(nums)
 	var ans [][]int
 	for i := 0; i+2 < len(nums); i++ {
@@ -13,7 +13,7 @@ func threeSum(nums []int) [][]int {
 		}
 		j := i + 1
 		k := len(nums) - 1
-		target := -nums[i]
+		tar := -nums[i] + target
 		for j < k {
 			if nums[j]+nums[k] > target {
 				k--
