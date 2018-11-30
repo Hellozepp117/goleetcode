@@ -21,17 +21,16 @@ func threeSum(nums []int) [][]int {
 				ans = append(ans, []int{nums[i], nums[j], nums[k]})
 				j++
 				k--
-				for j < k && nums[j] == nums[j-1] {
+				for j < k && nums[j] == nums[j-1] { // skip same result
 					j++
 				}
-				for j < k && nums[k] == nums[k+1] {
+				for j < k && nums[k] == nums[k+1] { // skip same result
 					k--
 				}
 			} else {
 				j++
 			}
 		}
-
 	}
 	return ans
 }
