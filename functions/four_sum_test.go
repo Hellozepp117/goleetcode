@@ -6,6 +6,6 @@ import (
 )
 
 func TestFourSum(t *testing.T) {
-	resp := fourSum([]int{0, 0, 0, 0}, 0)
+	resp := fourSum([]int{-1, 0, 1, 2, -1, -4}, -1)
 	fmt.Println(resp)
 }

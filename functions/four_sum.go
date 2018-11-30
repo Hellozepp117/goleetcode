@@ -13,7 +13,7 @@ func fourSum(nums []int, target int) [][]int {
 		}
 		newTarget := target - nums[l]
 		for i := l + 1; i+2 < len(nums); i++ {
-			if i > 0 && nums[i] == nums[i-1] { // skip same result
+			if i > l+1 && nums[i] == nums[i-1] { // skip same result
 				continue
 			}
 			j := i + 1
