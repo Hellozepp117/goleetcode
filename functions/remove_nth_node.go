@@ -10,6 +10,24 @@ package functions
 
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	base := head
+	var count int
+	for count = 1; ; count++ {
+		if head.Next == nil {
+			break
+		}
+	}
+	// delete
+	if count == n {
+		return base.Next
+	}
+	num := count - n + 1
 
-	return nil
+	head = base
+	for i := 1; ; i++ {
+		if i == num-1 {
+			head.Next = head.Next.Next
+			return base
+		}
+		head = head.Next
+	}
 }
