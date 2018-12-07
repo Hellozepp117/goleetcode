@@ -15,6 +15,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 		if head.Next == nil {
 			break
 		}
+		head = head.Next
 	}
 	// delete
 	if count == n {
@@ -26,8 +27,9 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	for i := 1; ; i++ {
 		if i == num-1 {
 			head.Next = head.Next.Next
-			return base
+			break
 		}
 		head = head.Next
 	}
+	return base
 }
