@@ -32,7 +32,6 @@ func threeSumClosest(nums []int, target int) int {
 				j++
 			}
 		}
-
 	}
 	return closestSum
 }
