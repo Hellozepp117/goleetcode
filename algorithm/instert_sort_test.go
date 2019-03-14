@@ -16,3 +16,9 @@ func TestBubbleSort(t *testing.T) {
 	result := BubbleSort(list)
 	fmt.Println(result)
 }
+
+func TestSelectSort(t *testing.T) {
+	list := []float64{2, 4, 1, 3, 6, 5, 7, 9}
+	result := SelectSort(list)
+	fmt.Println(result)
+}

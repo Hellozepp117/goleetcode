@@ -20,16 +20,25 @@ func BubbleSort(list []float64) []float64 {
 		return list
 	}
 	for {
-		ok := true
-		for i := 0; i < len(list)-1; i++ {
-			if list[i] > list[i+1] {
-				list[i], list[i+1] = list[i+1], list[i]
-				ok = false
+
+	}
+	return list
+}
+
+func SelectSort(list []float64) []float64 {
+	if len(list) < 2 {
+		return list
+	}
+	for i := 0; i < len(list)-1; i++ {
+		k := i
+		v := list[i]
+		for j := i + 1; j < len(list); j++ {
+			if list[j] < v {
+				v = list[j]
+				k = j
 			}
 		}
-		if ok {
-			break
-		}
+		list[i], list[k] = list[k], list[i]
 	}
 	return list
 }
