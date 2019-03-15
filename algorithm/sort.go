@@ -42,3 +42,44 @@ func SelectSort(list []float64) []float64 {
 	}
 	return list
 }
+
+func MergeSort(list []float64, start, end int) []float64 {
+	if start >= end {
+		return list
+	}
+	mid := (start + end) / 2
+	list = MergeSort(list, start, mid)
+	list = MergeSort(list, mid+1, end)
+	list = mergeSublist(list, start, mid, end)
+	return list
+}
+
+func mergeSublist(list []float64, start, mid, end int) []float64 {
+	l1 := mid - start + 1
+	l2 := end - mid
+	left := make([]float64, l1)
+	right := make([]float64, l2)
+	for i := 0; i < l1; i++ {
+		left[i] = list[start+i]
+	}
+	for i := 0; i < l2; i++ {
+		right[i] = list[mid+1]
+	}
+	var i, j int
+	for k := start; k <= end; k++ {
+		if i == l1 {
+			list[k] = right[j]
+			j++
+		} else if j == l2 {
+			list[k] = left[i]
+			i++
+		} else if left[i] <= right[j] {
+			list[k] = left[i]
+			i++
+		} else {
+			list[k] = right[j]
+			j++
+		}
+	}
+	return list
+}
