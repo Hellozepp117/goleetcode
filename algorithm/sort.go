@@ -63,7 +63,7 @@ func mergeSublist(list []float64, start, mid, end int) []float64 {
 		left[i] = list[start+i]
 	}
 	for i := 0; i < l2; i++ {
-		right[i] = list[mid+1]
+		right[i] = list[mid+1+i]
 	}
 	var i, j int
 	for k := start; k <= end; k++ {
