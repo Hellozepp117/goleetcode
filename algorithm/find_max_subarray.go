@@ -1,5 +1,6 @@
 package algorithm
 
+// 分治递归法
 func FindMaxSubarray(list []float64, start, end int) (int, int, float64) {
 	if start == end {
 		return start, end, list[start]
