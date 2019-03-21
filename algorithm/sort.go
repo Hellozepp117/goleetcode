@@ -83,3 +83,17 @@ func mergeSublist(list []float64, start, mid, end int) []float64 {
 	}
 	return list
 }
+
+//堆排序
+func parent(i int) int {
+	return i / 2
+}
+func left(i int) int {
+	return 2 * i
+}
+func right(i int) int {
+	return 2*i + 1
+}
+func MaxHeapify(list []float64, i int) ([]float64, int) {
+	return nil, 0
+}
