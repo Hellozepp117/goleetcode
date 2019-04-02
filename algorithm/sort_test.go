@@ -30,7 +30,7 @@ func TestMergeSort(t *testing.T) {
 }
 
 func TestHeapSort(t *testing.T) {
-	list := []float64{0, 9, 2, 4, 8, 1, 3, 6, 5, 7}
+	list := []float64{1, 2}
 	result := HeapSort(list)
 	fmt.Println(result)
 }
