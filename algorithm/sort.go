@@ -95,21 +95,21 @@ func right(i int) int {
 	return 2*i + 1
 }
 
-// 确保大顶子堆
+// 确保大顶子堆(list 为大顶堆)
 func maxHeapify(list []float64, i, hSize int) ([]float64, int) {
 	l := left(i)
 	r := right(i)
 	var largest int
-	if l <= hSize-1 && list[l] > list[i] {
+	if l <= hSize && list[l-1] > list[i-1] {
 		largest = l
 	} else {
 		largest = i
 	}
-	if r <= hSize-1 && list[r] > list[i] {
+	if r <= hSize && list[r-1] > list[largest-1] {
 		largest = r
 	}
 	if largest != i {
-		list[i], list[largest] = list[largest], list[i]
+		list[i-1], list[largest-1] = list[largest-1], list[i-1]
 		list, _ = maxHeapify(list, largest, hSize)
 	}
 	return list, largest
@@ -119,7 +119,7 @@ func maxHeapify(list []float64, i, hSize int) ([]float64, int) {
 func buildMaxHeap(list []float64) []float64 {
 	hSize := len(list)
 	n := len(list)
-	for i := n / 2; i >= 0; i-- {
+	for i := n/2 + 1; i >= 1; i-- {
 		list, _ = maxHeapify(list, i, hSize)
 	}
 	return list
@@ -131,10 +131,10 @@ func HeapSort(list []float64) []float64 {
 	}
 	hSize := len(list)
 	list = buildMaxHeap(list)
-	for i := len(list) - 1; i >= 1; i-- {
-		list[0], list[i] = list[i], list[0]
+	for i := len(list); i >= 2; i-- {
+		list[0], list[i-1] = list[i-1], list[0]
 		hSize--
-		list, _ = maxHeapify(list, 0, hSize)
+		list, _ = maxHeapify(list, 1, hSize)
 	}
 	return list
 }
