@@ -125,6 +125,7 @@ func buildMaxHeap(list []float64) []float64 {
 	return list
 }
 
+//堆排序 heap-sort
 func HeapSort(list []float64) []float64 {
 	if len(list) == 1 {
 		return list
@@ -137,4 +138,27 @@ func HeapSort(list []float64) []float64 {
 		list, _ = maxHeapify(list, 1, hSize)
 	}
 	return list
+}
+
+// 快速排序 quick-sort
+func QuickSort(list []float64, p, r int) []float64 {
+	if p < r {
+		list, q := partition(list, p, r)
+		list = QuickSort(list, p, q-1)
+		list = QuickSort(list, q, r)
+	}
+	return list
+}
+
+func partition(list []float64, p, r int) ([]float64, int) {
+	x := list[r]
+	i := p - 1
+	for j := p; j < r; j++ {
+		if list[j] <= x {
+			i++
+			list[i], list[j] = list[j], list[i]
+		}
+	}
+	list[i+1], list[r] = list[r], list[i+1]
+	return list, i + 1
 }
