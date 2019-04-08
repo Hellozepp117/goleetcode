@@ -192,7 +192,24 @@ func CountingSort(list []int, k int) []int {
 }
 
 // 十进制基数排序(MSD)
-func RadixSort(list []int) []int {
-
+func RadixSort(list []int, n int) []int {
+	for i := n; i >= 0; i-- { // 逆序即为LSD
+		list = fillAndMergeBucks(list, i)
+	}
 	return list
+}
+
+func fillAndMergeBucks(list []int, n int) []int {
+	bucks := make([][]int, 10)
+	for i := 0; i < len(list); i++ {
+		k := (list[i] / (10 ^ n)) % 10
+		bucks[k] = append(bucks[k], list[i])
+	}
+	var output []int
+	for i := 0; i < 10; i++ {
+		for _, v := range bucks[i] {
+			output = append(list, v)
+		}
+	}
+	return output
 }
