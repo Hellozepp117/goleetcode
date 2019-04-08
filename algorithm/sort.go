@@ -193,7 +193,7 @@ func CountingSort(list []int, k int) []int {
 
 // 十进制基数排序(MSD)
 func RadixSort(list []int, n int) []int {
-	for i := n; i >= 0; i-- { // 逆序即为LSD
+	for i := n - 1; i >= 0; i-- { // 逆序即为LSD
 		list = fillAndMergeBucks(list, i)
 	}
 	return list
