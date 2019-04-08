@@ -171,3 +171,22 @@ func partition(list []float64, p, r int) ([]float64, int) {
 	list[i+1], list[r] = list[r], list[i+1]
 	return list, i + 1
 }
+
+// 计数排序(元素必为整数)
+func CountingSort(list []int, k int) []int {
+	temp := make([]int, k+1)
+	for i := 0; i < len(list); i++ {
+		temp[list[i]]++
+		// temp[i] shows # of elements == i
+	}
+	for i := 1; i <= k; i++ {
+		temp[i] += temp[i-1]
+		// temp[i] shows # of elements <= i
+	}
+	output := make([]int, len(list))
+	for j := len(list) - 1; j >= 0; j-- {
+		output[temp[list[j]]-1] = list[j]
+		temp[list[j]]--
+	}
+	return output
+}

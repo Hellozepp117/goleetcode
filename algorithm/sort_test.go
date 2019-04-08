@@ -12,7 +12,7 @@ func TestInsertSort(t *testing.T) {
 }
 
 func TestBubbleSort(t *testing.T) {
-	list := []float64{2, 4, 3, 6, 5, 1}
+	list := []float64{0, 9, 2, 4, 8, 1, 3, 6, 5, 7, 4.6, 99.3, -11, -15, 0, 0, 7.5}
 	result := BubbleSort(list)
 	fmt.Println(result)
 }
@@ -38,5 +38,11 @@ func TestHeapSort(t *testing.T) {
 func TestQuickSort(t *testing.T) {
 	list := []float64{0, 9, 2, 4, 8, 1, 3, 6, 5, 7}
 	result := QuickSort(list, 0, len(list)-1)
+	fmt.Println(result)
+}
+
+func TestCountingSort(t *testing.T) {
+	list := []int{9, 9, 7, 6, 3}
+	result := CountingSort(list, 9)
 	fmt.Println(result)
 }
