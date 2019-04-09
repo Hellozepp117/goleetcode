@@ -1,5 +1,7 @@
 package algorithm
 
+import "math"
+
 func InsertSort(list []float64) []float64 {
 	if len(list) < 2 {
 		return list
@@ -191,9 +193,9 @@ func CountingSort(list []int, k int) []int {
 	return output
 }
 
-// 十进制基数排序(MSD)
+// 十进制基数排序(LSD)
 func RadixSort(list []int, n int) []int {
-	for i := n - 1; i >= 0; i-- { // 逆序即为LSD
+	for i := 0; i < n; i++ {
 		list = fillAndMergeBucks(list, i)
 	}
 	return list
@@ -202,13 +204,13 @@ func RadixSort(list []int, n int) []int {
 func fillAndMergeBucks(list []int, n int) []int {
 	bucks := make([][]int, 10)
 	for i := 0; i < len(list); i++ {
-		k := (list[i] / (10 ^ n)) % 10
+		k := (list[i] / int(math.Pow10(n))) % 10
 		bucks[k] = append(bucks[k], list[i])
 	}
 	var output []int
 	for i := 0; i < 10; i++ {
 		for _, v := range bucks[i] {
-			output = append(list, v)
+			output = append(output, v)
 		}
 	}
 	return output
