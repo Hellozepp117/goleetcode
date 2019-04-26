@@ -48,7 +48,7 @@ func TestCountingSort(t *testing.T) {
 }
 
 func TestRadixSort(t *testing.T) {
-	list := []int{90, 19, 27, 1, 36, 30, 106}
+	list := []int{90, 19, 27, 1, 36, 30, 106, 724, 23, 67}
 	result := RadixSort(list, 3)
 	fmt.Println(result)
 }
