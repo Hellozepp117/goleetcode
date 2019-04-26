@@ -236,3 +236,19 @@ func randomPartition(list []float64, p, r int) ([]float64, int) {
 	list[i], list[r] = list[r], list[i]
 	return partition(list, p, r)
 }
+
+// 随机选择算法 random-select
+func RandomSelect(list []float64, p, r, i int) ([]float64, float64) {
+	if p == r {
+		return nil, list[p]
+	}
+	list, q := randomPartition(list, p, r)
+	k := q - p + 1
+	if i == k { // jackpot!!!
+		return list, list[q]
+	} else if i < k {
+		return RandomSelect(list, p, q-1, i)
+	} else {
+		return RandomSelect(list, q+1, r, i-k)
+	}
+}

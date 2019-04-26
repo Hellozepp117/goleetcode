@@ -58,3 +58,9 @@ func TestRandomQuickSort(t *testing.T) {
 	result := RandomQuickSort(list, 0, len(list)-1)
 	fmt.Println(result)
 }
+
+func TestRandomSelect(t *testing.T) {
+	list := []float64{0, 9, 2, 4, 8, 1, 3, 6, 5, 7}
+	list, result := RandomSelect(list, 0, len(list)-1, 3)
+	fmt.Println(list, result)
+}
