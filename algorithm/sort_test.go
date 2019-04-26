@@ -52,3 +52,9 @@ func TestRadixSort(t *testing.T) {
 	result := RadixSort(list, 3)
 	fmt.Println(result)
 }
+
+func TestRandomQuickSort(t *testing.T) {
+	list := []float64{0, 9, 2, 4, 8, 1, 3, 6, 5, 7}
+	result := RandomQuickSort(list, 0, len(list)-1)
+	fmt.Println(result)
+}

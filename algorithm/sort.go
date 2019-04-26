@@ -1,6 +1,10 @@
 package algorithm
 
-import "math"
+import (
+	"math"
+	"math/rand"
+	"time"
+)
 
 func InsertSort(list []float64) []float64 {
 	if len(list) < 2 {
@@ -214,4 +218,21 @@ func fillAndMergeBucks(list []int, n int) []int {
 		}
 	}
 	return output
+}
+
+// 随机快速排序 random-quick-sort
+func RandomQuickSort(list []float64, p, r int) []float64 {
+	if p < r {
+		list, q := randomPartition(list, p, r)
+		list = RandomQuickSort(list, p, q-1)
+		list = RandomQuickSort(list, q, r)
+	}
+	return list
+}
+
+func randomPartition(list []float64, p, r int) ([]float64, int) {
+	rand.Seed(time.Now().UnixNano())
+	i := rand.Intn(r-p+1) + p
+	list[i], list[r] = list[r], list[i]
+	return partition(list, p, r)
 }
